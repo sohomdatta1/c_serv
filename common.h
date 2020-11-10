@@ -18,6 +18,7 @@
 #include <stdarg.h>
 
 #define C_SERV_UNIX_OKAY(a) !(a < 0)
+#define BUF_MAX_LEN 1000
 
 // Syntactical sugar to be able to use boolen 
 enum c_serv_boolean { False, True };
@@ -43,5 +44,7 @@ struct c_serv_expanded_request_data {
 };
 
 typedef struct c_serv_expanded_request_data c_serv_expanded_request_data;
+
+void c_serv_error_out( int, const char * , ... );
 
 #endif

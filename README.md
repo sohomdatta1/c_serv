@@ -18,7 +18,3 @@ A simple C based HTTP server for UNIX based operating systems implemented using 
 > * Datastructures (Queue)
 > * Basic socket programming (self taught)
 > * Threads/pthreads (self taught)
-
------
-
-For information on using the c_serv as a library to spin up a custom server with only a few lines of C take a look [here](/README_LIB.md)

@@ -4,16 +4,14 @@
 
 #include "common.h"
 #include "work_queue.h"
+#include "thread_group.h"
 
 #define MAX_CONNECTIONS 1000
-#define SERVER_DEFAULT_PORT 5001
-#define BUF_MAX_LEN 1000
+#define SERVER_DEFAULT_PORT 5000
 
 typedef struct c_serv_header_data header_data;
 
 char * route( c_serv_expanded_request_data * );
-
-void c_serv_error_out_internal( int, const char * , ... );
 
 void c_serv_handle_connections_internal();
 
