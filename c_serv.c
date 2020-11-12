@@ -52,10 +52,6 @@ void c_serv_create_server() {
     c_serv_create_server_with_portno( SERVER_DEFAULT_PORT );
 }
 
-void c_serv_generic_serve( char * directory, char * request ) {
-    // serve files in the directory
-}
-
 void c_serv_close_server() {
     // closing server
 }

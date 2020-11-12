@@ -19,6 +19,7 @@
 
 #define C_SERV_UNIX_OKAY(a) !(a < 0)
 #define BUF_MAX_LEN 1000
+#define NULL_CHAR '\0'
 
 // Syntactical sugar to be able to use boolen 
 enum c_serv_boolean { False, True };
@@ -27,6 +28,7 @@ typedef enum c_serv_boolean c_serv_boolean;
 struct c_serv_tuple {
     char * name;
     char * value;
+    struct c_serv_tuple * prev;
 };
 
 typedef struct c_serv_tuple c_serv_tuple;
@@ -35,11 +37,14 @@ typedef char * c_serv_request_data;
 
 typedef int c_serv_err_code;
 
+enum c_serv_method{ GET, POST, UNDEF };
+
 struct c_serv_expanded_request_data {
-    char * method;
+    enum c_serv_method method;
+    char * url;
     char * page;
-    c_serv_tuple header;
-    c_serv_tuple query;
+    c_serv_tuple * header;
+    c_serv_tuple * query;
     char * payload;
 };
 

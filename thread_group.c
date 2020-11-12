@@ -5,14 +5,14 @@ static pthread_t thread_group[MAX_THREAD_NO];
 
 static c_serv_work_queue * queue;
 
+/*
 char * route( c_serv_expanded_request_data * data  ) {
     return "";
 }
 
-/*
+
 char * c_serv_respond_internal( c_serv_request_data data ) {
-    char abc[] = "HTTP/1.0 200 OK\n\rHello\r\n\r\n";
-    return abc;
+    
     // parse the data
     // route( data );
 } */
@@ -22,6 +22,7 @@ void * run( void * args ) {
         c_serv_connection_data temp;
         if ( ( temp = c_serv_work_queue_pop( queue ) ).request_txt != NULL ) {
             fprintf(stdout, "Processing...\n" );
+           // c_serv_respond_internal( temp.request_txt );
             char *response = temp.request_txt;
             //sleep(1);
             c_serv_error_out( send( temp.connectionfd, response, strlen( response ), 0 ), "Unable to send" );
